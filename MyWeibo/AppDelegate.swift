@@ -12,10 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationController: UINavigationController!
+    var rootViewController: UIViewController!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+      
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = UIColor.whiteColor()
+        window!.makeKeyAndVisible()
+        
+        rootViewController = ViewController()
+        navigationController = UINavigationController(rootViewController: rootViewController)
+       
+        window!.rootViewController = rootViewController
+        window!.addSubview(navigationController.view)
+        println("I am window")
+        
         return true
     }
 

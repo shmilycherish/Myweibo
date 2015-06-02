@@ -13,6 +13,7 @@
 		E724A1631B105D2F00AE65F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E724A1621B105D2F00AE65F8 /* Images.xcassets */; };
 		E724A1661B105D2F00AE65F8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E724A1641B105D2F00AE65F8 /* LaunchScreen.xib */; };
 		E724A1721B105D2F00AE65F8 /* MyWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724A1711B105D2F00AE65F8 /* MyWeiboTests.swift */; };
+		E724A1801B1DC5E900AE65F8 /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724A17F1B1DC5E900AE65F8 /* DetailsPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		E724A16B1B105D2F00AE65F8 /* MyWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E724A1701B105D2F00AE65F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E724A1711B105D2F00AE65F8 /* MyWeiboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeiboTests.swift; sourceTree = "<group>"; };
+		E724A17F1B1DC5E900AE65F8 /* DetailsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		E724A1581B105D2F00AE65F8 /* MyWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				E724A17F1B1DC5E900AE65F8 /* DetailsPageViewController.swift */,
 				E724A15B1B105D2F00AE65F8 /* AppDelegate.swift */,
 				E724A15D1B105D2F00AE65F8 /* ViewController.swift */,
 				E724A15F1B105D2F00AE65F8 /* Main.storyboard */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E724A1801B1DC5E900AE65F8 /* DetailsPageViewController.swift in Sources */,
 				E724A15E1B105D2F00AE65F8 /* ViewController.swift in Sources */,
 				E724A15C1B105D2F00AE65F8 /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				E724A1771B105D2F00AE65F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E724A1781B105D2F00AE65F8 /* Build configuration list for PBXNativeTarget "MyWeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				E724A17A1B105D2F00AE65F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
