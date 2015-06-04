@@ -9,20 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
     
+    var list:[String] = []
+    
+    override func loadView() {
+        super.loadView()
         
-        let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.frame = CGRectMake(50, 100, 200, 40)
-        button.backgroundColor = UIColor.whiteColor()
+        let button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button.frame = CGRectMake(0, 0, 370, 670)
+        button.backgroundColor = UIColor.lightGrayColor()
         button.setTitle("Test Button", forState: UIControlState.Normal)
-        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchDragInside)
         
-        // Do any additional setup after loading the view, typically from a nib.
         self.view.addSubview(button)
+
     }
+
     
     func buttonAction(sender:UIButton!)
     {
@@ -37,6 +39,8 @@ class ViewController: UIViewController {
     }
     
 
+
+    
 
 
 }
