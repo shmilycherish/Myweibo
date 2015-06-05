@@ -10,16 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var list:[String] = []
-    
     override func loadView() {
         super.loadView()
         
         let button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.frame = CGRectMake(0, 0, 370, 670)
-        button.backgroundColor = UIColor.lightGrayColor()
-        button.setTitle("Test Button", forState: UIControlState.Normal)
+        button.frame = CGRectMake(0, 0, 370, 690)
+
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchDragInside)
+        let image = UIImage(named: "first")
+        button.setBackgroundImage(image, forState: UIControlState.Normal)
         
         self.view.addSubview(button)
 

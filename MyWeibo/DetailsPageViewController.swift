@@ -10,7 +10,7 @@ import UIKit
 
 class DetailsPageViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    var list:[String] = []
+    var books:[BookModel] = []
     
     override func loadView() {
         super.loadView()
@@ -24,19 +24,10 @@ class DetailsPageViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        readData()
+        
 
-        list.append("第一行");
-        list.append("第二行");
-        list.append("第三行");
-        list.append("第四行");
-        list.append("第一行");
-        list.append("第二行");
-        list.append("第三行");
-        list.append("第四行");
-        list.append("第一行");
-        list.append("第二行");
-        list.append("第三行");
-        list.append("第四行");
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,8 +37,12 @@ class DetailsPageViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
         
-        var label = UILabel(frame: CGRectMake(10, 5, 300, 80))
-        label.text="Hello，I am content"
+        var titlelabel = UILabel(frame: CGRectMake(8, 2, 300, 20))
+        var detaillabel = UITextView(frame: CGRectMake(8, 24, 360, 50))
+
+        let book = books[indexPath.row] as BookModel
+        titlelabel.text = book.title
+        detaillabel.text = book.detail
 
         
         let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
@@ -56,13 +51,14 @@ class DetailsPageViewController: UIViewController,UITableViewDataSource,UITableV
         button.setTitle("Test Button", forState: UIControlState.Normal)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         cell.addSubview(button)
-        cell.addSubview(label)
+        cell.addSubview(titlelabel)
+         cell.addSubview(detaillabel)
         
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return books.count
     }
     
     //每一个cell的高度
@@ -70,8 +66,33 @@ class DetailsPageViewController: UIViewController,UITableViewDataSource,UITableV
         return 120.0
     }
 
+    func readData() {
+        
+        let filePath = NSBundle.mainBundle().pathForResource("data",ofType:"json")
+        
+        var readError:NSError?
+        
+        
+        if let data = NSData(contentsOfFile:filePath!, options:NSDataReadingOptions.DataReadingUncached, error:&readError) {
+            
+            if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary {
+                if let items = json["books"] as? NSArray {
+                    for item in items {
+                        let title = item["title"] as! NSString
+                        let detail = item["summary"] as! NSString
+                        let book = BookModel(title: title, detail : detail)
+                        books.append(book)
+                    }
+                }
+            }
+            
+        }
+        
+        
+    }
     
-    
-    
+
+
+
     
 }
